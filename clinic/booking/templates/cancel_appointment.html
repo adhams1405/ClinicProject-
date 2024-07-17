@@ -1,0 +1,9 @@
+{% for appointment in appointments %}
+<div>
+    <p>{{ appointment.details }}</p>
+    <form method="post" action="{% url 'cancel' appointment.id %}">
+        {% csrf_token %}
+        <button type="submit">Cancel Appointment</button>
+    </form>
+</div>
+{% endfor %}
